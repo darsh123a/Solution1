@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import MainHeader from "./MainHeader";
-import data from ".././components/data/data.json";
+import data from "./data/data.json";
 
 const CardList = () => {
   const [originalData, setOriginalData] = useState(data);
