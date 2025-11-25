@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import moonIcon from "../assets/icon-moon.svg";
-import faviconlogo from "../assets/favicon-32x32.png";
-import sunIcon from "../assets/icon-sun.svg";
+
 import { ThemeContext } from "./ThemeContext.jsx";
 
 const ExtensionHeader = () => {
@@ -11,12 +9,20 @@ const ExtensionHeader = () => {
     <div
       className={`flex w-full h-20 rounded-2xl justify-between items-center px-4 
       transition-all duration-300 
-      ${theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"}`}
+      ${
+        theme === "light"
+          ? "bg-white text-black  shadow-xl"
+          : "bg-gray-800 text-white"
+      }`}
     >
       {/* LEFT SECTION */}
       <div className="flex flex-row items-center gap-2">
-        <img src={faviconlogo} alt="missing" className="w-11 h-11" />
-        <h3 className="text-lg font-semibold">Extensions</h3>
+        <img
+          src="/favicon-32x32.png"
+          alt="missing"
+          className="w-11 h-11 text-red-500"
+        />
+        <h3 className="text-xl  font-bold ">Extensions</h3>
       </div>
 
       {/* THEME TOGGLE BUTTON */}
@@ -28,7 +34,7 @@ const ExtensionHeader = () => {
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         <img
-          src={theme === "light" ? moonIcon : sunIcon}
+          src={theme === "light" ? "/icon-moon.svg" : "/icon-moon.svg"}
           alt="icon"
           className="w-6 h-6"
         />

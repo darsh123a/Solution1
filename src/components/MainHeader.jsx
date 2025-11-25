@@ -10,7 +10,7 @@ const MainHeader = ({ Filter }) => {
   // Header background + text
   const headerClasses =
     theme === "light"
-      ? "bg-gray-200 text-white shadow-md"
+      ? "bg-white text-black shadow-md"
       : "bg-gray-700 text-white";
 
   // Button base

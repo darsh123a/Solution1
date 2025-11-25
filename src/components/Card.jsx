@@ -1,12 +1,18 @@
 import React from "react";
-
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeContext.jsx";
 const Card = React.memo(({ data, ToggleActive, RemoveItem, index }) => {
+  const { theme } = useContext(ThemeContext);
   function handleToggle() {
     console.log("Toggling active state forvalue", data.isActive);
     ToggleActive(index);
   }
   return (
-    <div className="rounded-2xl h-60 p-7 bg-slate-700 border border-gray-500 shadow-md hover:shadow-lg transition-shadow duration-200">
+    <div
+      className={`rounded-2xl h-60 p-7 bg-slate-700 border border-gray-500 shadow-md hover:shadow-lg transition-shadow duration-200 ${
+        theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
+      }`}
+    >
       {/* Content Wrapper */}
       <div className="flex flex-col justify-between h-full">
         {/* Top Row */}
@@ -16,14 +22,24 @@ const Card = React.memo(({ data, ToggleActive, RemoveItem, index }) => {
             <img
               src={data.logo}
               alt="missing"
-              className="w-20 h-20 rounded-xl bg-gray-800 p-2 shadow-inner"
+              className="w-20 h-20 rounded-xl  p-2 shadow-inner"
             />
           </div>
 
           {/* Text Section */}
           <div>
-            <h1 className="text-2xl font-bold text-white">{data.name}</h1>
-            <p className="text-sm text-gray-300 leading-snug mt-1">
+            <h1
+              className={`text-2xl font-semibold  ${
+                theme === "light" ? "text-black" : "text-white"
+              }`}
+            >
+              {data.name}
+            </h1>
+            <p
+              className={`text-md  leading-snug mt-1   ${
+                theme === "light" ? "text-black" : "text-white"
+              }`}
+            >
               {data.description}
             </p>
           </div>
